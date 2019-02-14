@@ -46,9 +46,11 @@ void frm1()
 }
 string  solve1()
 {
+
     ll num,k;
     stringstream ss(col);
     ss>>num;
+
     while(num)
     {
         k=num%26;
