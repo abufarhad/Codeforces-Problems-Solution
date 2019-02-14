@@ -107,7 +107,6 @@ int main()
        //cout<<sol<<endl;
         if(sol==1)
         {
-
             frm1();
             solve1();
             cout<<col1<<row<<endl;
