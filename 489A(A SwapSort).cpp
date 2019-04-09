@@ -22,26 +22,16 @@ int main()
         for(int j=i+1; j<n; j++)
         if(value[index] > value[j]) index = j;
 
-        //cout<<"index1 --> "<<index<<endl;
-
         if(index != i)
         {
             content temp;
+
             temp.from= i;
-            //cout<<"Form "  <<temp.from<<" "<<endl;
             temp.to= index;
-            //cout<<"To "<<temp.to<<" "<<endl;
 
-            saves.push_back(temp);  //cout<<"temp "<<saves.push_back(temp)<<" "<<endl;
+            saves.push_back(temp);
 
-            int temp2 = value[i];
-            //cout<<"value temp2 "<<value[i]<<" "<<endl;
-
-            value[i] = value[index];
-           // cout<<"value  [i] "<<value[index]<<" "<<endl;
-
-            value[index] = temp2;
-           // cout<<"value[index] "<<value[index]<<" "<<endl;
+            swap(value[i], value[index]);
         }
     }
 

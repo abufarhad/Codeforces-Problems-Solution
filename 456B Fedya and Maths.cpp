@@ -14,13 +14,31 @@ using namespace std;
 int main()
 {
     string s;
+    ll n,m,i,r=0;
+    cin>>s;
+    ll l=s.length();
+    fr(i,l)
+    {
+        r=r*10+s[i]-'0';
+        cout<<r<<endl;
+    }
+    r%=4;
+    //cout<<endl<<r<<endl;
+    if(r==0)cout<<"4"<<endl;
+    else cout<<"0"<<endl;
+}
+
+/*
+int main()
+{
+    string s;
     ll n,m,i,r=0,ans=0;
     cin>>s;
     ll l=s.length();
     fr(i,l)
     {
         r=r*10+s[i]-'0';
-         r%=4; //cout<<r<<" ";
+        r%=4; //cout<<r<<" ";
     }
     //cout<<r<<" "<<endl;
     for(i=1;i<5;i++){ans+=pow(i,r); ans%=5;}
@@ -29,3 +47,5 @@ int main()
 //    if(r==0)cout<<"4"<<endl;
 //    else cout<<"0"<<endl;
 }
+*/
+
