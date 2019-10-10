@@ -17,16 +17,19 @@ ll cnt[10000005], pre[10000005], pri[10000005],i,j,m;
 
 void pre_calc()
 {
-    /*   ......................precalculation.................................*/
+                                /*   ......................precalculation.................................*/
+    /*   ......................We can calculate all divisor of all number from 2 to 10e8 .................................*/
 
     for(i=4; i<=10000000; i+=2)
     {
-        pri[i]=1;
+        pri[i]=1;               //visited
         pre[2]+=cnt[i];
     }
 
     m=sqrt(double(10000000.00));
     //pfl(m);
+
+    // upper half calculation
 
     for( i=3; i<=m; i+=2)
     {
@@ -46,6 +49,9 @@ void pre_calc()
 
     if(m%2==0)
         m++;
+
+        //next half calculation
+
     for( i=m; i<=10000000; i+=2)
     {
         if(pri[i]==0)

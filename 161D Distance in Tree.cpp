@@ -1,7 +1,5 @@
 
-
-/// Unsolve yet  ->
-
+///*********Incomplete**********
 #include<bits/stdc++.h>
 #include<stdio.h>
 using namespace std;
@@ -22,39 +20,52 @@ using namespace std;
 #define pn                  printf("\n")
 #define debug               printf("I am here\n")
 vector<ll>v[50005];
-bool visited[50005 ];
-
+bool vis[50005 ];
+ll cnt,k;
+/*
 void dfs(ll n)
 {
-    visited[n]=1;
+
+    cnt++;
+
     for(ll i=0; i<v[n].size(); i++)
     {
         ll u=v[n][i];
-        if(visited[u]=0 )
-        {
-            visited[u]=1;
-            dfs(u);
-        }
+        cout<<n<<" -"<<u<< " ->"<<endl;
+        if(cnt==k)vis[u]=1, cnt=1;
+        if(!vis[u]) dfs(u);
     }
+    pn;
 }
+*/
 
 int main()
 {
-    ll m,n,t,b,c,d,i,j,k,x,y,z,l,q,r;
+    ll m,n,a,t,b,c,d,i,j,x,y,z,l,q,r;
 
 
       ll cnt=0,ans=0;
       scl(n);scl(k);
 
-      fr(i,n)
+      fr1(i,n-1)
       {
           cin>>a>>b;
           v[a].pb(b);
           v[b].pb(a);
       }
+   //
 
-      dfs(1);
+      fr1(i,n)
+      {
+          memset(vis, 0, sizeof(vis));
+          vis[i-1]=1;
+          cnt=0;
+          dfs(i);
+          cout<<"cnt "<<cnt<<endl;
+          ans+=cnt;
+      }
 
+      pfl(ans);
 
 return 0;
 }
