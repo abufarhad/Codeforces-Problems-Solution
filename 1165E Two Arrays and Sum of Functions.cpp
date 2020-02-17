@@ -47,6 +47,8 @@ int main()
 
       fr1(i,n) a[i-1]*=(i%md )*(n-i+1 ) ;
 
+      fr(i, n)cout<<a[i]<<" "; pn;
+
 
       asort(a);
       dsort(b);

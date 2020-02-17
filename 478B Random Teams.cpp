@@ -17,36 +17,30 @@ using namespace std;
 
 int main()
 {
-
-    ll m,n,t,b,c,d,i,j,k,p,x,y,z,l,q,r,team;
+    ll m,n,t,b,c,d,i,j,k,p,x,y,z,l,q,r;
 
       ll cnt=0,ans=0;
-      while(cin>>n>>m){ b=1;
+      while(cin>>n>>m)
+      {
+           ll mn=0, mx=0;
+           //for min
+            ll team=n/m;
+            ll baki=n%m;
+            if(baki>0)
+            {
+            team++;
+            mn+=baki* (team* (team-1))/2;
+            team--;
+            mn+= (m-baki)*(team* (team-1))/2;
+            }
+            else mn+=m*(team* (team-1))/2;
 
+             //for max
+             team=n-m+1;
+             mx=(team* (team-1))/2;
 
-      if(m>1 && n>m){
-      b=2;
-      y=m*b;
+             cout<<mn<<" "<<mx<<endl;
 
-      while(y< n ){y=m*b ; if(y==n) break; b++ ;}
-      if( y-n >=b )b--;
-     // cout<<b<<endl;
-
-      }
-     if(b==1 && m!=1) { k=m*2, team=(n-(k-n))/2 ; b++; }
-     else team=n/b;
-
-
-      x=n-(m-1);
-      ll ansMax= ( x*(x-1) )/2;
-      ll ansMin=0;
-
-      fr(i, team)  ansMin+=( ( b*(b-1) )/2 ) ;
-
-      if(ansMin==0)ansMin=ansMax;
-
-
-     cout<<ansMin<<" "<<ansMax<<endl;
       }
 
 return 0;

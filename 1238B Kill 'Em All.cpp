@@ -34,6 +34,7 @@ int main()
 
     fr(i, v.size())
     {
+        cout<<v[i]<<" "<<cnt*m<<" "<<v[i] - cnt*m<<endl;
         if(v[i] - cnt*m <=0 )break;
         cnt++;
     }

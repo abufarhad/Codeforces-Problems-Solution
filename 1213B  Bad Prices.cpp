@@ -48,8 +48,9 @@ int main()
 
       for(i=n-1; i>=0;i--)
       {
-          if(a[i]>mn )ans++;
+          if(a[i]>mn )ans++, cout<<a[i]<<" "<<mn<<endl;
           mn=min(mn, a[i]);
+
       }
 
 

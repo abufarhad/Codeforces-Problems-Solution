@@ -42,24 +42,23 @@ int main()
          fr(i, l(s))
          {
              //debug;
-             if(s[i]=='(')
-             {
-                 p.push(i);
-             }
+             if(s[i]=='(')  p.push(i);
              else
              {
-                 //cout<<i<<" "<<p.top()<<endl;
+                 cout<<i<<" bug "<<p.top()<<endl;
                  p.pop();
                  if(!p.empty() )
                  {
                  ll top= i-p.top();
+                 cout<<top<<" "<<i<<" "<<p.top()<<endl;
+
                  if(top>ans)ans=top, k=1;
 
                  else if(top==ans)k++;//cout<<i<<endl,
                  }
                  else p.push(i);
              }
-                // cout<<top<<" "<<i<<" "<<p.top()<<endl;
+                cout<<i<<" - "<<p.top()<<endl;
          }
 
     if(ans>0)cout<<ans<<" "<<k<<endl;
