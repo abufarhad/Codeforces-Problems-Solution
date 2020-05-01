@@ -26,7 +26,11 @@ ll phi(ll n)
     {
         if(n%i)continue;
         while(n%i==0)  n/=i;
+
+        cout<<ans<<" "<<i<<endl;
         ans= (ans/i)*(i-1);
+        cout<<ans<<" "<<i<<endl;
+
     }
 
     if(n>1)ans=(ans/n)*(n-1);

@@ -97,7 +97,31 @@ int main()
 return 0;
 }
 
+/*
+#include <bits/stdc++.h>
 
+const int N = 2e5+10;
+int n, ans;
+char str[N];
+
+char other (char a, char b) {
+  if (a == b) return a == 'R' ? 'B' : 'R';
+  return 'R' ^ 'B' ^ 'G' ^ a ^ b;
+}
+
+int main() {
+  scanf("%d%s", &n, str);
+
+  str[n] = 'R';
+  for (int i = 1; i < n; i++)
+    if (str[i] == str[i-1])
+      str[i] = other(str[i], str[i+1]), ans++;
+  str[n] = '\0';
+
+  printf("%d\n%s\n", ans, str);
+  return 0;
+}
+*/
 
 
 

@@ -1,85 +1,27 @@
-//! Bismillahi-Rahamanirahim.
-/** ========================================**
- ** @Author: Md. Abu Farhad ( RUET, CSE'15)
- ** @Category:
-/** ========================================**/
-
 #include<bits/stdc++.h>
-#include<stdio.h>
 using namespace std;
-
-
-#define ll                  long long
-#define scl(n)              scanf("%lld", &n)
-#define scf(n)              scanf("%lf", &n)
-#define pfl(x)              printf("%lld\n",x)
-#define md                  10000007
-#define pb                  push_back
-#define fr(i,n)             for (ll i=0;i<n;i++)
-#define fr1(i,n)            for(ll i=1;i<=n;i++)
-#define asort(a)            sort(a,a+n)
-#define dsort(a)            sort(a,a+n,greater<int>())
-#define pn                  printf("\n")
-#define debug               printf("I am here\n")
-#define ps                  printf(" ")
-
-
 int main()
 {
-    ll m,n,t,b,c,d,i,j,k,x,y,z,l,q,r;
+	long long n,k,m;
+	cin>>n>>k>>m;
+	long long a[n];
+	long long sum = 0;
+	for(int i=0; i<n; i++)
+	{
+		cin>>a[i];
+		sum += a[i];
+	}
+	sort(a,a+n);
+	double cnt1 = 0,ans;
+	for(int i=0; i< min(n,m+1); i++)
+	{
+	    cout<<sum<<" "<<min(k*(n-i),m-i)<<endl;
+		ans = sum + min(k*(n-i),m-i);
+		cout<<ans<<endl;
 
-    ll cnt=0,ans=0;
-    cin>>n>>k>>m;
-    ll  a[n];
-    vector<ll>v;
-    vector<ll>::iterator it;
-    for(i=0; i<n; i++)
-    {
-        cin>>x;
-        v.pb(x);
-    }
-
-    sort(v.begin(), v.end() );
-//     fr(i,v.size())cout<<v[i]<<" ";
-//     pn;
-
-    if(n>=k)
-    {
-        for(i=0; i<m; i++)
-        {
-            if(v.size()>1)
-            {
-                it = v.begin();
-                v.erase(it);
-            }
-            else
-                continue;
-        }
-    }
-    else
-    {
-        for(i=0; i<k; i++)
-        {
-            if(v.size()>1)
-            {
-                it = v.begin();
-                v.erase(it);
-            }
-            else
-                continue;
-        }
-    }
-
-
-
-    fr(i,v.size())cout<<v[i]<<" ";
-
-
-
-
-    return 0;
+		ans /= (n-i);
+		cnt1=max(cnt1,ans);
+		sum -= a[i];
+	}
+	cout<<fixed<<setprecision(6)<<cnt1;
 }
-
-
-
-

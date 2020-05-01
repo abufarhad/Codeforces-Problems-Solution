@@ -16,6 +16,7 @@ int main()
         for(j=0;j<n;j++)
         {
             m=string(a[j]+a[j]).find(a[i]);
+            //cout<<a[j]+a[j]<< " "<<a[i]<<" "<<  m<<endl;
             m==string::npos?ans=-1:ans+=m;
         }
         mn=min(ans,mn );

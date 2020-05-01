@@ -1,100 +1,134 @@
-//! Bismillahi-Rahamanirahim.
-/** ========================================**
- ** @Author: Md. Abu Farhad ( RUET, CSE'15)
- ** @Category:
-/** ========================================**/
+#include <stdio.h>
+#include <iostream>
+#include <climits>
+#include <map>
+#include <cmath>
+#include <algorithm>
+#include <set>
+#include <stack>
+#include <deque>
+#include <vector>
+#include <stdlib.h>
+#include <string>
+#include <string.h>
+#include <utility>
+#include <queue>
 
-#include<bits/stdc++.h>
-#include<stdio.h>
+
 using namespace std;
 
+#define ll long long
+#define ulli  unsigned ll int
 
-#define ll                  long long
-#define scl(n)              cin>>n;
-#define scc(c)	            cin>>c;
-#define fr(i,n)             for (ll i=0;i<n;i++)
-#define fr1(i,n)            for(ll i=1;i<=n;i++)
-#define pfl(x)              printf("%lld\n",x)
-#define pb                  push_back
-#define debug               cout<<"I am here"<<endl;
-#define l(s)                s.size()
-#define asort(a)            sort(a,a+n)
-#define all(x) 	            (x).begin(), (x).end()
-#define dsort(a)            sort(a,a+n,greater<int>())
-#define vasort(v)           sort(v.begin(), v.end());
-#define vdsort(v)           sort(v.begin(), v.end(),greater<int>());
-#define uniquee(x)          x.erase(unique(x.begin(), x.end()),x.end())
-#define pn                  cout<<endl;
-#define md                  1000000007
-#define inf                 1e18
-#define ps                  cout<<" ";
-#define Pi                  acos(-1.0)
-#define mem(a,i)            memset(a, i, sizeof(a))
-#define tcas(i,t)           for(ll i=1;i<=t;i++)
-#define pcas(i)             cout<<"Case "<<i<<": "<<"\n";
-#define fast 	ios_base::sync_with_stdio(0);cin.tie(NULL);cout.tie(NULL)
+#define sl(n) scanf("%lld", &n)
+#define sl2(a,b) scanf("%lld%lld", &a,&b)
+#define sl3(a,b,c) scanf("%lld%lld%lld", &a,&b,&c)
+#define sl(n) scanf("%lld", &n)
+#define sf(n) scanf("%lf", &n)
+#define si(n) scanf("%d", &n)
+#define pii pair <int, int>
+#define pll pair <ll, ll>
+#define plp pair <int, pll >
+#define pb push_back
+#define mkpr  make_pair
+#define   ff   first
+#define   ss  second
+#define  srt(V)  sort(V.begin(),V.end());
+#define nl printf("\n");
 
-#define conv_string(n)	to_string(n)
-//ll x[10]= {0,-1,-1,1,1,-2,-2,2,2};
-//ll y[10]= {0,-2,2,-2,2,-1,1,-1,1};
+#define  PI  2*acos(0.0);
+#define  INFP 100000000000000000
+#define  INFN (0-(ll)1<<62)
+#define  loop(a,b)  for(int g=a;g<=b;g++)
+#define  for1(n)  for(int i=0;i<n;i++)
+#define  for2(n)  for(int j=0;j<n;j++)
+#define  for3(n)  for(int k=0;k<n;k++)
+#define  for4(n)  for(int l=0;l<n;l++)
+#define  tst(n)  for(int cs=1;cs<=n;cs++)
+#define spc <<" "<<
+#define  pys puts("YES");
+#define  pno  puts("NO");
 
+#define bug puts("bug");
+#define bug1 puts("bug1");
 
+#define  pmn puts("-1");
+#define zero puts("0");
+#define limit 200006
 
-
-//vector<ll>cnt(26, 0);   ///create fixed 26 sized vector and initialize initially all 0
-// sscanf(c, "%s %s", s,s1); // take string buffer  and then distribute all value , here take 2 value and distribute
-///cin.ignore(); // Need when we take input as a string line before  getline(cin,s)
-//ll bigmod(ll b, ll p, ll md){if(p==0) return 1;if(p%2==1){ return ((b%md)*bigmod(b,p-1,md))%md;} else {ll y=bigmod(b,p/2,md);return (y*y)%md;}}
-//ll find_all_divisor(ll n){  fr1(i,sqrt(n)){     ll x;  if(n % i == 0)  { x = n / i; v.pb(i);  if(i != x) v.pb(x);}}}
-
-// ll *a=new ll[n+1]();  //automatic initialize to zero
-///Every even integer greater than 2 can be represented as the sum of two primes numbers.
-//count item in array : count(arr,arr+n,'I');
-
-//bool cmp(ll i, ll j){  if( fac[i]==fac[j])return i>j;   return fac[i]< fac[j];  }
-
-/*-----------------------Bitmask------------------*/
-//int Set(int N,int pos){return N=N | (1<<pos);}
-//int reset(int N,int pos){return N= N & ~(1<<pos);}
-//bool check(int N,int pos){return (bool)(N & (1<<pos));}
-/*------------------------------------------------*/
-
-
-#define N 100006
-
+typedef pair<ll,ll> iPair;
 int main()
 {
-    fast;
-    ll t;
-    cin>>t;
-    tcas(cs, t)
+    map<ll,ll>mp;
+    for(ll i=0; i<64; i++)  mp[(1LL<<i)]=i;
+
+    cout<<mp[8]<<endl;
+
+    ll test;
+    cin>>test;
+
+    tst(test)
     {
-    ll m,n,b,c,d,i,j,k,x,y,z,l,q,r;
-    string s,s1, s2, s3, s4;
+        ll frq[65];
+        ll n,m;
 
-    ll cnt=0,ans=0,sum=0;
-    cin>>n>>m;
+        sl2(n,m);
+        memset(frq,0,sizeof frq);
 
-    ll a[n];
-    fr(i,n)cin>>a[i], sum+=a[i];
+        for(ll i=0; i<m; i++)
+        {
+            ll a;
+            sl(a);
+            frq[mp[a]]++;
+        }
 
-    dsort(a);
-    if(sum==n)ans=0;
-    else if(sum>n)
-    {
+         for(ll i=0;i<20;i++)cout<<frq[i]<<" ";
 
-    }
+        //  nl
 
-    cout<<ans<<endl;
-    }
+        ll ans=0;
 
-return 0;
+        bool ys=true;
+
+        for(ll i=0; i<64; i++)
+        {
+            if(n&(1LL<<i))
+            {
+                cout<<i<<endl;
+                if(frq[i]==0)
+                {
+                    //cout<<"aa "<<i<<endl;
+                    bool no=true;
+                    ll c=1;
+                    for(ll j=i+1; j<64; j++)
+                    {
+                        if(frq[j])
+                        {
+                            no=false;
+                            ans+=c;
+                            frq[i]+=(1LL<<c);
+
+                            frq[j]--;
+                            break;
+                        }
+                        c++;
+                    }
+                    if(no)
+                    {
+                        ys=false;
+                    }
+                }
+
+                frq[i]--;
+            }
+
+
+            ll p=frq[i]/2;
+            frq[i+1]+=p;
+        }
+
+        if(ys)  cout<<ans<<endl;
+        else    pmn
+        }
 }
-
-///Before submit=>
-///    *check for integer overflow,array bounds
-///    *check for n=1
-
-
-
 

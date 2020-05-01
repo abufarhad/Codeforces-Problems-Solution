@@ -21,13 +21,15 @@ using namespace std;
 vector<ll>v;
 ll func(ll n)
 {
+    cout<<"I am here"<<endl;
+
     ll res=0;
     fr1(i, v.size())
     {
         if(n>0)
         {
             ll tmp=min(v[i]-v[i-1], n );
-            res+=tmp*v[i];
+            res+=tmp*v[i];              //Tmp= Number of elements on v[i-1] to v[i] , so we don't need to calculate iteratively just multiply enough though
             n-=tmp;
             //cout<<tmp<<" "<<v[i]<<" "<<v[i-1]<<" "<<n<<endl;
         }

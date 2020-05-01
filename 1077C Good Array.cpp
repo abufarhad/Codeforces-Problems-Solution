@@ -5,48 +5,42 @@ using namespace std;
 #define ll                  long long
 #define fr(i,n)           for (ll i=0;i<n;i++)
 #define fr1(i,n)         for(ll i=1;i<=n;i++)
-vector<ll>v;
 
 
+map<ll , ll> cnt;
 
 int main()
 {
     ll m,n,i,j=0,res,x,y,p;
 
     cin>>n;
+    ll a[n];
 
-    ll a[n+2],b[n],cnt=0;
+    ll sum=0, ans=0;
 
-    fr(i,n)
+    fr(i, n)cin>>a[i] , ans+=a[i] , cnt[a[i] ]++;
+
+    vector<ll>v;
+    fr(i, n)
     {
-        cin>>a[i];
-        v.push_back(a[i]);
+        x=0;
+        ans-=a[i];
+        ll tmp=ans/2;
+        if(cnt[a[i]]) x=1, cnt[a[i] ]--;
+
+       if(ans%2==0 and  cnt[tmp] )v.push_back(i+1);
+
+        ans+=a[i];
+        if(x) cnt[a[i] ]++;
     }
 
-    for(i=0; i<n; i++)
+    if(v.size())
     {
-        res=accumulate(v.begin(), v.end(), 0);
-        res-=a[i];
-        ll mx=*max_element(v.begin(), v.end());
-        res-=mx;
-
-        //if(res%2==0  ){cnt++;b[j]=i+1,j++;}
-        if(res== mx)
-        {
-            cnt++;
-            b[j]=i+1,j++;
-        }
-
+        cout<<v.size()<<endl;
+        fr(i, v.size())cout<<v[i]<<" ";
     }
+    else cout<<0<<endl;
 
-    //if(cnt==1 )cout<<"0"<<endl;
-    //else
-    {
-        cout<<cnt<<endl;
-        fr(i,cnt)
-        {
-            cout<<b[i]<<" ";
-        }
-    }
+
 }
 

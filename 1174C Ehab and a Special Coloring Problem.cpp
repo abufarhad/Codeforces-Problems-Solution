@@ -42,9 +42,10 @@ int main()
       {
          if(a[i]==0)
          {
-             for(j=i;j<=n;j+=i) a[j]=cnt;
+             for(j=i;j<=n;j+=i)cout<<j<<" ",  a[j]=cnt;
              cnt++;
          }
+         cout<<endl;
       }
       for(i=2;i<=n;i++)cout<<a[i]<<" ";
 

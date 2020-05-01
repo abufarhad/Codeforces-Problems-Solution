@@ -36,14 +36,15 @@ using namespace std;
 //int reset(int\ mask,int pos){return mask= mask & ~(1<<pos);}
 //bool check(int mask,int pos){return (bool)(mask & (1<<pos));}
 //LL bigmod(LL b, LL p, LL md){if(p==0) return 1;if(p%2==1){ return ((b%md)*bigmod(b,p-1,md))%md;} else {LL y=bigmod(b,p/2,md);return (y*y)%md;}}
-
+#define fr(i,n)             for (int i=0;i<n;i++)
 #define N 1000006
 vector<int>v[26];
-
+int k=0;
 vector<int>ans;
 void dfs(int s,int p)
 {
     ans.pb(s);
+
     if(v[s].size()==1) return ;
     int a=v[s][0];
     int b=v[s][1];
@@ -103,12 +104,12 @@ int main()
         for(int i=0; i<26; i++)
         {
             if(v[i].size()>2) flag=false;
-            if(v[i].size()==1)  e.pb(i);
-            cout<<i<<" "<<v[i].size()<<endl;
+            if(v[i].size()==1) cout<<i<<" ",  e.pb(i);
+           //cout<<i<<" "<<v[i].size()<<endl;
 
         }
 
-        cout<<e.size()<<endl;
+        cout<<endl<<e.size()<<endl;
 
 
         if(e.size()!=2)    flag=false;
@@ -118,14 +119,18 @@ int main()
             continue;
         }
 
-        cout<<" --> "<<e[0]<<" "<<v[e[0]][0]<< endl;
+        fr(i, e.size())cout<<e[i]<<" ";
+        cout<<endl<<" --> "<<e[0]<<" "<<v[e[0]][0]<< endl;
 
         ans.pb(e[0]);
 
         //fr(int i=0; i<v[i].size(); i++)cout<<v[i]
-        cout<<v[e[0]][0]<<endl;
+
+
 
         dfs(v[e[0]][0],e[0]);
+
+         cout<<ans.size()<<" "<<Map.size()<<endl;
 
         if(ans.size()!=Map.size())
         {
@@ -140,8 +145,6 @@ int main()
             if(Map[ch]==false)   cout<<ch;
         }
         cout<<"\n";
-
-
 
 
     }
