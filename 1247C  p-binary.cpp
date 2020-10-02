@@ -1,9 +1,3 @@
-//! Bismillahi-Rahamanirahim.
-/** ========================================**
- ** @Author: Md. Abu Farhad ( RUET, CSE'15)
- ** @Category:
-/** ========================================**/
-
 #include<bits/stdc++.h>
 #include<stdio.h>
 using namespace std;
@@ -33,11 +27,7 @@ using namespace std;
 #define tcas(i,t)           for(ll i=1;i<=t;i++)
 #define pcas(i)             printf("Case %lld: ",i)
 ll pow2[30];
-void pow_2(ll p)
-{
-    pow2[0]=1+p;
-    fr(i, 28) pow2[i+1]=(2<<i)+p;
-}
+
 
 int main()
 {
@@ -46,11 +36,15 @@ int main()
 
     ll cnt=0,ans=0;
     cin>>n>>p;
-    pow_2(p);
 
+    /// n-k*p =[ sumof[0 : k] ( 2^k ) ] , so if number from [0 : 32 ] if num_bit  is greater then or equal to k then possible otherwise not
+    fr(i, 33)
+    {
+        ll tmp=n-i*p;
+        if(__builtin_popcount(tmp) <=i  and tmp>=i ){cout<<i<<endl;return 0;}
+    }
 
-
-    pfl(ans);
+    cout<<-1<<endl;
 
 return 0;
 }

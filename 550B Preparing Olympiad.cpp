@@ -75,20 +75,27 @@ int main()
     //solve(0, 0);
     ll sz=1<<n;
 
+
     fr(i, sz)
     {
         ll mn=inf, mx=-1, cnt=0, sm=0;
         fr(j, n)
         {
+            //cout<<i<<" "<<j<<" "<<(1<<j)<<endl;
             ll tmp=i & (1<<j);
+
+            ///for 2^n  process
+           // if(tmp==0)cout<<"tmp" <<i<<" "<<j<<"  , ";
             if(tmp)
             {
+                //cout<<i<<" "<<j<<endl;
                 sm+=a[j];
                 mx=max(mx, a[j]);
                 mn=min(mn, a[j]);
                 cnt++;
             }
         }
+        cout<<endl;
 
        // cout<<"sm "<<sm<<endl;
        if(cnt>1 and mx-mn>=dif and sm>=l and sm<=r)ans++;

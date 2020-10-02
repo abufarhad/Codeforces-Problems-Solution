@@ -1,15 +1,8 @@
-
-
-///------------ https://blog.csdn.net/qq_36996464/article/details/81282076 --------- //
-
-
 #include<bits/stdc++.h>
 #include<stdio.h>
 #pragma GCC optimize("Ofast")
 #pragma GCC target("avx,avx2,fma")
 using namespace std;
-
-
 #define ll                  long long
 #define scl(n)              scanf("%lld",&n)
 #define scc(c)	            scanf("%c",&c)
@@ -20,7 +13,6 @@ using namespace std;
 #define debug               cout<<"I am here"<<endl;
 #define pno                 cout<<"NO"<<endl
 #define pys                 cout<<"YES"<<endl
-
 #define l(s)                s.size()
 #define asort(a)            sort(a,a+n)
 #define all(x) 	            (x).begin(), (x).end()
@@ -43,31 +35,34 @@ using namespace std;
 #define fast 	ios_base::sync_with_stdio(0);cin.tie(NULL);cout.tie(NULL)
 
 
-#define N 100006
+#define N 2006
 vector<ll>v[N];
 bool vis[N];
-ll dp[N];
+ll dp[N] , wt[N];
+ll m,n,b,c,d,i,j,k,x,y,z,l,q,r;
 
-ll dfs(ll child ,ll weight ,  ll parent , ll root )
+ll dfs(ll s , ll root )
 {
-    dp[child]=1;
+    dp[s]= vis[s]=1;
 
-    for(auto  now : v[child] )
+    for(auto  to : v[s] )
     {
-        if( a[now] == weight   and now <    )
+       if(vis[to]   or ( wt[to]- wt[root] >d) )continue;
+       if(wt[to]  <  wt[root]  )continue;                     //every time root consider as minimum value
+       if(wt[to]==wt[root]  and to > root )continue;
+
+       dfs(to , root);
+
+       dp[s]= ( dp[s] * (dp[to] + 1) ) %md;
     }
 }
 
 int main()
 {
-    ll m,n,b,c,d,i,j,k,x,y,z,l,q,r;
-    string s,s1, s2, s3, s4;
-
     ll cnt=0,ans=0,sum=0 ;
     cin>>d>>n;
-    ll a[n];
 
-    fr1(i,n)cin>>a[i];
+    fr1(i,n)cin>>wt[i];
 
     fr1(i, n-1)
     {
@@ -79,18 +74,16 @@ int main()
     fr1(i, n)
     {
         mem(vis, 0);
-        cnt+=dfs(i,a[i], i, i);
+        mem(dp , 0);
+
+        dfs(i , i);
+        ans=( ans+ dp[i]  ) %md;
     }
 
     cout<<ans;pn;
 
-
 return 0;
 }
-
-///Before submit=>
-///    *check for integer overflow,array bounds
-///    *check for n=1
 
 
 

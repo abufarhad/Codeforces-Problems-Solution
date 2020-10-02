@@ -26,14 +26,16 @@ int main()
             if(p[k].size()==0){ans=-1; break;}
             pos=upper_bound(p[k].begin() , p[k].end() , ppos ) - p[k].begin();
 
-            //cout<<t[i]<<" "<<pos<<" "<<ppos<<" "<<p[k][pos]<<endl;
 
+            //cout<<pos<<" "<<p[k].size()<<endl;
             if(pos==p[k].size())
             {
                 ans++;
                 pos=0;
             }
             ppos=p[k][pos];
+
+           // cout<<t[i]<<" "<<pos<<" "<<ppos<<" "<<p[k][pos]<<endl;
         }
 
         cout<<ans<<endl;

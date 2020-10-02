@@ -61,10 +61,8 @@ bool cmp( ll a, ll b)
     return cma> cmb;
 }
 
-
 int main()
 {
-
     ll m,n,b,c,d,i,j,k,x,y,z,l,q,r;
     cin>>n>>k;
     fr(i,n-1)
@@ -80,13 +78,12 @@ int main()
 
     sort(nodes+1 , nodes+n+1 ,  cmp);
 
-
     // fr1(i, n)cout<<nodes[i]<<" "; pn;
 
     ll ans=0;
     fr1(i, k)
     {
-        ll cma=distance_from_root[ nodes[i]]-sub_tree_sz[nodes[i]]+1;
+        ll cma=distance_from_root[ nodes[i] ]-sub_tree_sz[nodes[i] ]+1;
         ans+=cma;
     }
 

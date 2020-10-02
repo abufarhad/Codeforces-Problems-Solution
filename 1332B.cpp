@@ -1,9 +1,3 @@
-//! Bismillahi-Rahamanirahim.
-/** ========================================**
- ** @Author: Md. Abu Farhad ( RUET, CSE'15)
- ** @Category:
-/** ========================================**/
-
 #include<bits/stdc++.h>
 #include<stdio.h>
 using namespace std;
@@ -35,44 +29,16 @@ using namespace std;
 #define mem(a,i)            memset(a, i, sizeof(a))
 #define tcas(i,t)           for(ll i=1;i<=t;i++)
 #define pcas(i)             cout<<"Case "<<i<<": "<<"\n";
-#define fast 	ios_base::sync_with_stdio(0);cin.tie(NULL);cout.tie(NULL)
-
-#define conv_string(n)	to_string(n)
-//ll x[10]= {0,-1,-1,1,1,-2,-2,2,2};
-//ll y[10]= {0,-2,2,-2,2,-1,1,-1,1};
-
-
-
-
-// sscanf(c, "%s %s", s,s1); // take string buffer  and then distribute all value , here take 2 value and distribute
-///cin.ignore(); // Need when we take input as a string line before  getline(cin,s)
-//ll bigmod(ll b, ll p, ll md){if(p==0) return 1;if(p%2==1){ return ((b%md)*bigmod(b,p-1,md))%md;} else {ll y=bigmod(b,p/2,md);return (y*y)%md;}}
-//ll find_all_divisor(ll n){  fr1(i,sqrt(n)){     ll x;  if(n % i == 0)  { x = n / i; v.pb(i);  if(i != x) v.pb(x);}}}
-
-// ll *a=new ll[n+1]();  //automatic initialize to zero
-///Every even integer greater than 2 can be represented as the sum of two primes numbers.
-//count item in array : count(arr,arr+n,'I');
-
-//bool cmp(ll i, ll j){  if( fac[i]==fac[j])return i>j;   return fac[i]< fac[j];  }
-
-/*-----------------------Bitmask------------------*/
-//int Set(int N,int pos){return N=N | (1<<pos);}
-//int reset(int N,int pos){return N= N & ~(1<<pos);}
-//bool check(int N,int pos){return (bool)(N & (1<<pos));}
-/*------------------------------------------------*/
-
 
 #define N 100006
 
 int main()
 {
-    fast;
     ll t;
     cin>>t;
     tcas(cs, t)
     {
     ll m,n,b,c,d,i,j,k,x,y,z,l,q,r;
-    string s,s1, s2, s3, s4;
 
     ll cnt=0,ans=0,sum=0 , f=1;
     scl(n);
@@ -80,20 +46,29 @@ int main()
 
     k=0;
     fr(i,n)cin>>a[i];
-    if(n>11)
-    {
-       fr(i, n)
-       {
-           for(j=i+1; j<n; j++)
-           {
-               if(vis[j]==0 and  __gcd(a[i] , a[j] )==1 ){ans[i]=f, f++ , a[j]=f++ , cnt=1 ; break;}
-           }
-       }
-       if(cnt)ans[k++]=
-    }
-    else fr1(i, 11)cout<<i<<" ", pn;
 
-    //cout<<ans<<endl;
+    ll color[n];
+    mem(color , 0);
+
+    k=1;
+    for(i=2; i<=sqrt(1000) ; i++)
+    {
+        ll vis=0;
+        for(j=0; j<n; j++)
+        {
+            if(color[j]==0  and a[j]%i==0)
+            {
+                color[j]=k;
+                vis++;
+            }
+        }
+        if(vis)k++;
+    }
+
+    k--;
+    pfl(k);
+    fr(i, n)cout<<color[i]<<" "; pn;
+
     }
 
 return 0;

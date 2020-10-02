@@ -52,6 +52,7 @@ void dijkstra(ll n)
             ll v=graph[u][i].first;
             ll cost=graph[u][i].second;
 
+            cout<<v<<" "<<cost<<endl;
             if( dist[v] > dist[u]+cost )
             {
                  pr[v]=u;

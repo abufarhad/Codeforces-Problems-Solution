@@ -13,12 +13,13 @@ int main()
 {
     ll m,n,t,b,c,d,i,j,k,z,sum=0;
     scl(n);
-    while(n--){
-    scl(x), scl(y);
-    for(i=1; (x|i)<=y; i<<=1)
+    while(n--)
     {
-        x|=i;
-    }
-    pfl(x);
+        scl(x), scl(y);
+        for(i=1; (x|i)<=y; i<<=1)
+        {
+            x|=i;
+        }
+        pfl(x);
     }
 }

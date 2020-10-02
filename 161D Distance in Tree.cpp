@@ -1,5 +1,3 @@
-
-///*********Incomplete**********
 #include<bits/stdc++.h>
 #include<stdio.h>
 using namespace std;
@@ -19,30 +17,15 @@ using namespace std;
 #define vdsort(v)         sort(v.begin(), v.end(),greater<int>());
 #define pn                  printf("\n")
 #define debug               printf("I am here\n")
+
 vector<ll>v[50005];
 bool vis[50005 ];
 ll cnt,k;
-/*
-void dfs(ll n)
-{
 
-    cnt++;
-
-    for(ll i=0; i<v[n].size(); i++)
-    {
-        ll u=v[n][i];
-        cout<<n<<" -"<<u<< " ->"<<endl;
-        if(cnt==k)vis[u]=1, cnt=1;
-        if(!vis[u]) dfs(u);
-    }
-    pn;
-}
-*/
 
 int main()
 {
     ll m,n,a,t,b,c,d,i,j,x,y,z,l,q,r;
-
 
       ll cnt=0,ans=0;
       scl(n);scl(k);
@@ -53,7 +36,6 @@ int main()
           v[a].pb(b);
           v[b].pb(a);
       }
-   //
 
       fr1(i,n)
       {
