@@ -73,12 +73,12 @@ int main()
     }
     dfs(1, 0);
 
-   // fr1(i, n)cout<<i<<"  "<<distance_from_root[i]<<" "<<sub_tree_sz[i]<<endl;
+    fr1(i, n)cout<<i<<"  "<<distance_from_root[i]<<" "<<sub_tree_sz[i]<<endl;
     fr1(i, n)nodes[i]=i;
 
     sort(nodes+1 , nodes+n+1 ,  cmp);
 
-    // fr1(i, n)cout<<nodes[i]<<" "; pn;
+     fr1(i, n)cout<<nodes[i]<<" "; pn;
 
     ll ans=0;
     fr1(i, k)

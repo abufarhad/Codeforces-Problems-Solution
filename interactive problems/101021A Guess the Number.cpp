@@ -20,7 +20,7 @@ int main()
         {
             h=mid-1;
         }
-        else l=mid;
+        else      l=mid;
     }
     printf("! %lld\n", l);
     fflush(stdout);

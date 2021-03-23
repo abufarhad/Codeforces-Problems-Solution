@@ -52,34 +52,34 @@ int main()
     cin>>t;
     tcas(cs, t)
     {
-    ll m,n,c,d,i,j,k,x,y,z,l,q,r;
-    string s,s1, s2, s3, s4;
+        ll m,n,c,d,i,j,k,x,y,z,l,q,r;
+        string s,s1, s2, s3, s4;
 
-    ll cnt=0,ans=0,sum=0;
-    cin>>n;
-    ll a[n] , b[n];
-    fr(i, n)
-    {
-        cin>>a[i]>>b[i];
-    }
+        ll cnt=0,ans=0,sum=0;
+        cin>>n;
+        ll a[n] , b[n];
+        fr(i, n)
+        {
+            cin>>a[i]>>b[i];
+        }
 
-    ll mn=inf;
-    fr(i, n)
-    {
-        if(i==n-1 )x=0;
-        else x=i+1;
+        ll mn=inf;
+        fr(i, n)
+        {
+            if(i==n-1 )x=0;
+            else x=i+1;
 
-        ll val =min( a[x],  b[i]  );
+            ll val =min( a[x],  b[i]  );
 
-        ans+=(a[x]-val );
-        mn=min( mn  , val );
+            ans+=(a[x]-val );
+            mn=min( mn  , val );
 
-        //cout<<x<<" "<<a[x]<<" "<<b[i]<<" "<<ans<<" "<<mn<<endl;
-    }
+            cout<<x<<" "<<a[x]<<" "<<b[i]<<" "<<ans<<" "<<mn<<endl;
+        }
 
-    ans+=mn;
+        ans+=mn;
 
-    cout<<ans<<endl;
+        cout<<ans<<endl;
 
     }
 

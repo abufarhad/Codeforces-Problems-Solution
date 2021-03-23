@@ -71,6 +71,7 @@ int main()
             while(num)
             {
                 r=num%k;
+                cout<<num<<" rem = "<<r<<endl;
                 if(r>1){cnt=1;break;}
                 if(r)
                 {

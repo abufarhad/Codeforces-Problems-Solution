@@ -94,7 +94,8 @@ int main()
 
       call();
       scl(n);
-      while(n--){
+      while(n--)
+      {
       col.clear(),col1.clear(),row.clear();
       ll sol=0;
       cin>>s;

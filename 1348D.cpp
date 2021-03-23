@@ -42,11 +42,17 @@ int main()
     vector<ll> v;
     v.pb(1);
 
-    /* If we see  number grows up- 1 3 7 15 ...................... this way and Number of bacteria  be-  1 2 4 8 ........................
-         For Ex. n=11 , So After 7 if  we can find next day if no split bacteria grows up 11 , if 1 split then 12 , for 2 split 12 , 3 for 14
-         so, we can find the calculation this way calculate up to 8 then extra cut out then sort and find the difference .
+    /*  If we look closely total  mass of after day by day  are grows in this pattern - 1 3 7 15 ......................
+         and Number of bacteria will be-  1 2 4 8 ........................
+         For Ex. n=11 , So After 7 if  we can find next day
+         if no split bacteria grows up 11 ,
+         if 1 split then 12 ,
+         if 2 split then 13 ,
+         if 3 split then 14
+         so, we can find the calculation this way calculate up to 8 then cut the extra then sort and find the difference .
 
-         if no split then 11 if 9 comes up then we must see in previous must there some bacteria not split so same calculation 9-7 = 2 then sort and find the difference .
+         if no split then 11 if 9 comes up then we must see in previous must there some bacteria not split
+         so same calculation 9-7 = 2 then sort and find the difference .
     */
 
     for(i=1; i<=n; i++)
@@ -56,7 +62,9 @@ int main()
         if(x >n ) break;
     }
 
+    fr(i ,v.size())cout<<v[i]<<" ";pn;
     v[v.size()-1]=n-(v[v.size()-1]-1);
+    fr(i ,v.size())cout<<v[i]<<" ";pn;
 
     vasort(v);
     //fr(i, v.size())cout<<v[i]<<" "; pn;

@@ -1,5 +1,4 @@
 
-
 #include<bits/stdc++.h>
 #include<stdio.h>
 #pragma GCC optimize("Ofast")
@@ -48,8 +47,10 @@ void solve(ll l, ll r )
 
     ll mid=(l+r)/2;
 
-     v[mid].ff=l-r;
-     v[mid].ss=mid;
+//     v[mid].ff=l-r;
+//     v[mid].ss=mid;
+
+     v[mid]={l-r , mid };
 
     //cout<<l<<" "<<r<<" "<<mid<<endl;
 
@@ -64,18 +65,25 @@ int main()
     cin>>t;
     tcas(cs, t)
     {
-    ll m,b,c,d,i,j,x,y,l,q,r;
+        ll m,b,c,d,i,j,x,y,l,q,r;
 
-    ll cnt=0,cn=0,ans=0,sum=0 ;
-    cin>>n;
+        ll cnt=0,cn=0,ans=0,sum=0 ;
+        cin>>n;
 
-    solve(1, n);
-    sort(v+1, v+n+1);
+        solve(1, n);
 
+        //for(auto id:v)cout<<id.ff<<" "<<id.ss<<endl;
 
-    ll a[n];
-    fr1(i, n)a[v[i].ss ]=i;
-    fr1(i, n)cout<<a[i]<<" "; pn;
+        //fr1(i , n)cout<<v[i].ff<<" "<<v[i].ss<<endl;
+
+        sort(v+1, v+n+1);
+
+        pn;
+        //fr1(i , n)cout<<v[i].ff<<" "<<v[i].ss<<endl;
+
+        ll a[n];
+        fr1(i, n)a[v[i].ss ]=i;
+        fr1(i, n)cout<<a[i]<<" "; pn;
 
     }
 
